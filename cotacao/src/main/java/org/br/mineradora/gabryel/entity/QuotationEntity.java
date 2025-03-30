@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "quotation")
 @Data
 @NoArgsConstructor
+@Entity
+@Table(name = "quotation")
 public class QuotationEntity {
 
     @Id
