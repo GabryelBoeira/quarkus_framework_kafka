@@ -64,3 +64,16 @@ Crie sua primeira entidade JPA
 [Seção relacionada do guia...](https://quarkus.io/guides/hibernate-orm)
 
 [Seção relacionada do guia Hibernate com Panache...](https://quarkus.io/guides/hibernate-orm-panache)
+
+# Documentação do Docker 
+
+- Versao mais recente da imagem do PostgreSQL: https://hub.docker.com/_/postgres
+```shell script
+  docker pull postgres
+```
+
+- Configuracao de inicializacao do banco de dados:
+```shell script
+  docker run -p 5432:5432 -e POSTGRES_PASSWORD=root -d postgres
+```
+
