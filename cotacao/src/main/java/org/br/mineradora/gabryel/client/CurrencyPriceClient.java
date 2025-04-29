@@ -14,6 +14,6 @@ public interface CurrencyPriceClient {
 
     @GET
     @Path("/{pair}")
-    CurrencyPriceDTO getCurrencyPrice(@PathParam("pair") String pair);
+    CurrencyPriceDTO getPriceByPair(@PathParam("pair") String pair);
 
 }
