@@ -67,13 +67,10 @@ Crie sua primeira entidade JPA
 
 # Documentação do Docker 
 
-- Versao mais recente da imagem do PostgreSQL: https://hub.docker.com/_/postgres
-```shell script
-  docker pull postgres
-```
-
 - Configuracao de inicializacao do banco de dados:
 ```shell script
-  docker run -p 5432:5432 -e POSTGRES_PASSWORD=root -d postgres
+  docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=root postgres 
+  docker run -d --name zookeeper -p 2181:2181 zookeeper:3.4.9 
+  docker run -d --name kafka -p 9092:9092 --link zookeeper:zookeeper wurstmeister/kafka:2.12-2.2.1 
 ```
 
