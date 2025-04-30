@@ -4,17 +4,14 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
-import org.br.mineradora.gabryel.dto.CurrencyPriceDTO;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-
 @ApplicationScoped
-@Path("/currency-price")
-@RegisterRestClient(baseUri = "${awesomeapi.quotation.price.base.url}")
+@RegisterRestClient(baseUri = "https://economia.awesomeapi.com.br")
 public interface CurrencyPriceClient {
 
     @GET
-    @Path("/{pair}")
-    CurrencyPriceDTO getPriceByPair(@PathParam("pair") String pair);
+    @Path("/json/last/{pair}")
+    String getPriceByPair(@PathParam("pair") String pair);
 
 }

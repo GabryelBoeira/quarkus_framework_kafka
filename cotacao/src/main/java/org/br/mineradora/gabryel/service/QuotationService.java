@@ -1,5 +1,6 @@
 package org.br.mineradora.gabryel.service;
 
+import com.google.gson.Gson;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.br.mineradora.gabryel.client.CurrencyPriceClient;
@@ -31,11 +32,14 @@ public class QuotationService {
     @Inject
     KafkaEvents kafkaEvents;
 
+    @Inject
+    private Gson gson;
+
     /**
      * This method gets the current price of BRL-USD and sends an event to the Kafka topic if the price has changed.
      */
     public void getCurrencyPrice() {
-        CurrencyPriceDTO currencyPriceDTO = currencyPriceClient.getPriceByPair("USD-BRL");
+        CurrencyPriceDTO currencyPriceDTO = gson.fromJson(currencyPriceClient.getPriceByPair("USD-BRL"), CurrencyPriceDTO.class);
 
         if (updateCurrencyInfoPrice(currencyPriceDTO)) {
             kafkaEvents.sendNewKafkaEvent(QuotationDTO
@@ -56,7 +60,7 @@ public class QuotationService {
      * @param currencyPriceDTO the current price of BRL-USD.
      * @return true if the price has changed, false otherwise.
      */
-    public boolean updateCurrencyInfoPrice(CurrencyPriceDTO currencyPriceDTO) {
+    private boolean updateCurrencyInfoPrice(CurrencyPriceDTO currencyPriceDTO) {
         BigDecimal currentPrice = new BigDecimal(currencyPriceDTO.getUSDBRL().getBid());
         List<QuotationEntity> quotationEntities = quotationRepository.findAll().list();
 

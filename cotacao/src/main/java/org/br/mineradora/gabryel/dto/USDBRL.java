@@ -22,8 +22,6 @@ public class USDBRL {
     private String bid;
     private String ask;
     private String timestamp;
-
-    @JsonAlias("create_date")
-    private String createDate;
+    private String create_date;
 
 }
