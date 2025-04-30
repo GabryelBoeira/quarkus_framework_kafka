@@ -7,9 +7,10 @@ import jakarta.ws.rs.PathParam;
 import org.br.mineradora.gabryel.dto.CurrencyPriceDTO;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
-@Path("/currency-price")
-@RegisterRestClient
+
 @ApplicationScoped
+@Path("/currency-price")
+@RegisterRestClient(baseUri = "${awesomeapi.quotation.price.base.url}")
 public interface CurrencyPriceClient {
 
     @GET
