@@ -1,4 +1,4 @@
-package org.br.mineradora.gabryel.repository;
+package org.br.mineradora.gabryel.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -15,7 +15,7 @@ public class ProposalEntity {
 
     @Id
     @GeneratedValue
-    private String id;
+    private Long id;
 
     private String customer;
 
