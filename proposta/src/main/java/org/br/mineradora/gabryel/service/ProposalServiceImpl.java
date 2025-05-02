@@ -1,5 +1,6 @@
 package org.br.mineradora.gabryel.service;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import org.br.mineradora.gabryel.dto.ProposalDTO;
@@ -12,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 
-
+@ApplicationScoped
 public class ProposalServiceImpl implements ProposalService {
 
     private final Logger LOG = LoggerFactory.getLogger(ProposalServiceImpl.class);
@@ -51,7 +52,6 @@ public class ProposalServiceImpl implements ProposalService {
         proposalRepository.deleteById(id);
     }
 
-    @Transactional
     private ProposalDTO buildAndSaveProposal(ProposalDetailsDTO proposalDetailsDTO) {
         try {
 
