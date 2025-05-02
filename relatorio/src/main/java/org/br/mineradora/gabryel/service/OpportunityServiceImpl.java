@@ -1,6 +1,5 @@
 package org.br.mineradora.gabryel.service;
 
-import io.quarkus.panache.common.Sort;
 import jakarta.inject.Inject;
 import org.br.mineradora.gabryel.dto.OpportunityDto;
 import org.br.mineradora.gabryel.dto.ProposalDTO;
@@ -10,9 +9,10 @@ import org.br.mineradora.gabryel.entity.QuotationEntity;
 import org.br.mineradora.gabryel.message.KafkaEvent;
 import org.br.mineradora.gabryel.repository.OpportunityRepository;
 import org.br.mineradora.gabryel.repository.QuotationRepository;
+import org.br.mineradora.gabryel.utils.CSVHelper;
 
+import java.io.ByteArrayInputStream;
 import java.time.LocalDate;
-import java.util.Collections;
 import java.util.List;
 
 public class OpportunityServiceImpl implements OpportunityService {
@@ -51,4 +51,20 @@ public class OpportunityServiceImpl implements OpportunityService {
     public List<OpportunityDto> generateOpportunityData() {
         return List.of();
     }
+
+    @Override
+    public ByteArrayInputStream generateCsvOpportunityReport() {
+        List<OpportunityDto> opportunities = opportunityRepository.listAll().stream()
+                .map(item -> OpportunityDto.builder()
+                        .proposalId(item.getProposalId())
+                        .customer(item.getCustomer())
+                        .priceTonne(item.getPriceTonne())
+                        .lastQuotation(item.getLastQuotation())
+                        .pair(item.getPair())
+                        .build())
+                .toList();
+
+        return CSVHelper.opportunityReportToCSV(opportunities);
+    }
+
 }

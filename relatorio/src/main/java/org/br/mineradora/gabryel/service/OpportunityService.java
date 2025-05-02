@@ -5,6 +5,7 @@ import org.br.mineradora.gabryel.dto.OpportunityDto;
 import org.br.mineradora.gabryel.dto.ProposalDTO;
 import org.br.mineradora.gabryel.dto.QuotationDTO;
 
+import java.io.ByteArrayInputStream;
 import java.util.List;
 
 @ApplicationScoped
@@ -15,5 +16,7 @@ public interface OpportunityService {
     void saveQuotation(QuotationDTO quotation);
 
     List<OpportunityDto> generateOpportunityData();
+
+    ByteArrayInputStream generateCsvOpportunityReport();
 
 }
