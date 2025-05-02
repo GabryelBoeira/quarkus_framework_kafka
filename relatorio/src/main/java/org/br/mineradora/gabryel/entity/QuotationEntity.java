@@ -19,6 +19,8 @@ public class QuotationEntity {
 
     private LocalDate date;
 
+    private String pair;
+
     @Column(name = "currency_price")
     private BigDecimal currencyPrice;
 
