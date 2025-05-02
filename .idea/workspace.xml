@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="097bc0f5-c64a-43f4-8aaf-0b9b2651d315" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/repository/OpportunityRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/repository/QuotationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/service/OpportunityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/entity/QuotationEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/entity/QuotationEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/controller/OpportunityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/service/OpportunityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/service/OpportunityServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/relatorio/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/relatorio/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/relatorio/src/main/resources/import.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,24 +26,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2wWZk7IblrsVS3atkfrMBl0G00a" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.codeium.enabled": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/gabryel/Documents/github/quarkus_framework_kafka"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gabryel/Documents/github/quarkus_framework_kafka&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Quarkus Dev Mode.proposta">
     <configuration name="proposta" type="QuarkusRunConfiguration" factoryName="QuarkusRunConfiguration">
       <module name="proposta" />
