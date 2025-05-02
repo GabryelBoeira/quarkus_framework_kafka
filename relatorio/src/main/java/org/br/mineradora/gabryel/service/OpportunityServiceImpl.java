@@ -1,5 +1,6 @@
 package org.br.mineradora.gabryel.service;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.br.mineradora.gabryel.dto.OpportunityDto;
 import org.br.mineradora.gabryel.dto.ProposalDTO;
@@ -15,6 +16,7 @@ import java.io.ByteArrayInputStream;
 import java.time.LocalDate;
 import java.util.List;
 
+@ApplicationScoped
 public class OpportunityServiceImpl implements OpportunityService {
 
     @Inject
