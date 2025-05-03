@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "quotation")
@@ -17,7 +18,7 @@ public class QuotationEntity {
     @GeneratedValue
     private Long id;
 
-    private LocalDate date;
+    private LocalDateTime date;
 
     private String pair;
 

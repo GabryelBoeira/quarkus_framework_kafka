@@ -2,6 +2,7 @@ package org.br.mineradora.gabryel.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import org.br.mineradora.gabryel.dto.OpportunityDto;
 import org.br.mineradora.gabryel.dto.ProposalDTO;
 import org.br.mineradora.gabryel.dto.QuotationDTO;
@@ -13,7 +14,7 @@ import org.br.mineradora.gabryel.repository.QuotationRepository;
 import org.br.mineradora.gabryel.utils.CSVHelper;
 
 import java.io.ByteArrayInputStream;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @ApplicationScoped
@@ -34,7 +35,7 @@ public class OpportunityServiceImpl implements OpportunityService {
         QuotationEntity lastQuotation = quotationRepository.findLastQuotation();
 
         OpportunityEntity opportunityEntity = new OpportunityEntity();
-        opportunityEntity.setDate(LocalDate.now());
+        opportunityEntity.setDate(LocalDateTime.now());
         opportunityEntity.setProposalId(proposal.getId());
         opportunityEntity.setCustomer(proposal.getCustomer());
         opportunityEntity.setPair(lastQuotation.getPair());
@@ -45,8 +46,15 @@ public class OpportunityServiceImpl implements OpportunityService {
     }
 
     @Override
+    @Transactional
     public void saveQuotation(QuotationDTO quotation) {
 
+        QuotationEntity quotationEntity = new QuotationEntity();
+        quotationEntity.setDate(quotation.getDate());
+        quotationEntity.setCurrencyPrice(quotation.getCurrencyPrice());
+        quotationEntity.setPair(quotation.getPair());
+
+        quotationRepository.persist(quotationEntity);
     }
 
     @Override

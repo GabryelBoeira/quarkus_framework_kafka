@@ -3,6 +3,7 @@ package org.br.mineradora.gabryel.service;
 import com.google.gson.Gson;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import org.br.mineradora.gabryel.client.CurrencyPriceClient;
 import org.br.mineradora.gabryel.dto.CurrencyPriceDTO;
 import org.br.mineradora.gabryel.dto.QuotationDTO;
@@ -15,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @ApplicationScoped
@@ -38,6 +40,7 @@ public class QuotationService {
     /**
      * This method gets the current price of BRL-USD and sends an event to the Kafka topic if the price has changed.
      */
+    @Transactional
     public void getCurrencyPrice() {
         CurrencyPriceDTO currencyPriceDTO = gson.fromJson(currencyPriceClient.getPriceByPair("USD-BRL"), CurrencyPriceDTO.class);
 
@@ -45,6 +48,7 @@ public class QuotationService {
             kafkaEvents.sendNewKafkaEvent(QuotationDTO
                     .builder()
                     .currencyPrice(new BigDecimal(currencyPriceDTO.getUSDBRL().getBid()))
+                    .pair("USD-BRL")
                     .date(LocalDate.now())
                     .build());
         }
@@ -89,7 +93,7 @@ public class QuotationService {
         QuotationEntity quotationEntity = new QuotationEntity();
         quotationEntity.setCurrencyPrice(new BigDecimal(currencyPriceDTO.getUSDBRL().getBid()));
         quotationEntity.setPctChange(currencyPriceDTO.getUSDBRL().getPctChange());
-        quotationEntity.setDate(LocalDate.now());
+        quotationEntity.setDate(LocalDateTime.now());
         quotationEntity.setPair("USD-BRL");
 
         quotationRepository.persist(quotationEntity);

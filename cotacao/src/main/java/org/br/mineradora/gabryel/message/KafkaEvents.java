@@ -16,6 +16,7 @@ public class KafkaEvents {
     @Channel("quotation-channel")
     Emitter<QuotationDTO> quotationRequestEmitter;
 
+
     public void sendNewKafkaEvent(QuotationDTO quotationDTO) {
 
         LOG.info("--- Sending quotation {} ---", quotationDTO);

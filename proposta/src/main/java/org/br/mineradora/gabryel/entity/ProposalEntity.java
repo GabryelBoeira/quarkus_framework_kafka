@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "proposal")
@@ -28,6 +29,6 @@ public class ProposalEntity {
 
     private Integer proposalValidityInDays;
 
-    private LocalDate created;
+    private LocalDateTime created;
 
 }

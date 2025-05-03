@@ -11,7 +11,7 @@ import org.br.mineradora.gabryel.repository.ProposalRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @ApplicationScoped
 public class ProposalServiceImpl implements ProposalService {
@@ -61,7 +61,7 @@ public class ProposalServiceImpl implements ProposalService {
             entity.setPriceTonne(proposalDetailsDTO.getPriceTonne());
             entity.setProposalValidityInDays(proposalDetailsDTO.getProposalValidityInDays());
             entity.setTonnes(proposalDetailsDTO.getTonnes());
-            entity.setCreated(LocalDate.now());
+            entity.setCreated(LocalDateTime.now());
 
             proposalRepository.persist(entity);
             return ProposalDTO.builder()
