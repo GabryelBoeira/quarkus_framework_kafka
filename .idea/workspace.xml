@@ -6,18 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="097bc0f5-c64a-43f4-8aaf-0b9b2651d315" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cotacao/src/main/java/org/br/mineradora/gabryel/dto/QuotationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/cotacao/src/main/java/org/br/mineradora/gabryel/dto/QuotationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cotacao/src/main/java/org/br/mineradora/gabryel/entity/QuotationEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/cotacao/src/main/java/org/br/mineradora/gabryel/entity/QuotationEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cotacao/src/main/java/org/br/mineradora/gabryel/message/KafkaEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/cotacao/src/main/java/org/br/mineradora/gabryel/message/KafkaEvents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cotacao/src/main/java/org/br/mineradora/gabryel/service/QuotationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/cotacao/src/main/java/org/br/mineradora/gabryel/service/QuotationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cotacao/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/cotacao/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proposta/src/main/java/org/br/mineradora/gabryel/entity/ProposalEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/proposta/src/main/java/org/br/mineradora/gabryel/entity/ProposalEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proposta/src/main/java/org/br/mineradora/gabryel/service/ProposalServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/proposta/src/main/java/org/br/mineradora/gabryel/service/ProposalServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/dto/QuotationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/dto/QuotationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/entity/OpportunityEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/entity/OpportunityEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/entity/QuotationEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/entity/QuotationEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cotacao/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cotacao/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/service/OpportunityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/relatorio/src/main/java/org/br/mineradora/gabryel/service/OpportunityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/relatorio/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/relatorio/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

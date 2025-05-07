@@ -21,7 +21,7 @@ A aplicação pode ser empacotada usando:
 ./mvnw package
 ```
 
-Isso produz o arquivo `quarkus-run.jar` no diretório `target/quarkus-app/`. 
+Isso produz o arquivo `quarkus-run.jar` no diretório `target/quarkus-app/`.
 
 Observe que não é um _über-jar_ pois as dependências são copiadas para o diretório `target/quarkus-app/lib/`.
 
@@ -32,6 +32,7 @@ Se você deseja criar um _über-jar_, execute o seguinte comando:
 ```shell script
 ./mvnw package -Dquarkus.package.jar.type=uber-jar
 ```
+
 A aplicação, empacotada como um _über-jar_, agora pode ser executada usando `java -jar target/*-runner.jar`.
 
 ## Criando um executável nativo
@@ -41,6 +42,7 @@ Você pode criar um executável nativo usando:
 ```shell script
 ./mvnw package -Dnative
 ```
+
 Ou, se você não tiver o GraalVM instalado, você pode executar a construção do executável nativo em um contêiner usando:
 
 ```shell script
@@ -58,17 +60,11 @@ Se você deseja saber mais sobre a construção de executáveis nativos, consult
 - Driver JDBC - PostgreSQL (guia): Conecte-se ao banco de dados PostgreSQL via JDBC
 
 ## Código fornecido
+
 ### Hibernate ORM
+
 Crie sua primeira entidade JPA
 
 [Seção relacionada do guia...](https://quarkus.io/guides/hibernate-orm)
 
 [Seção relacionada do guia Hibernate com Panache...](https://quarkus.io/guides/hibernate-orm-panache)
-
-# Documentação do Docker 
-
-- Configuracao de inicializacao do banco de dados:
-```shell script
-  docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -d postgres 
- ```
-
