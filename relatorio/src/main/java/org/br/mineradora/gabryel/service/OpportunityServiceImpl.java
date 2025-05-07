@@ -15,6 +15,7 @@ import org.br.mineradora.gabryel.utils.CSVHelper;
 
 import java.io.ByteArrayInputStream;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @ApplicationScoped
@@ -59,22 +60,28 @@ public class OpportunityServiceImpl implements OpportunityService {
 
     @Override
     public List<OpportunityDto> generateOpportunityData() {
-        return List.of();
+        List<OpportunityDto> opportunities = new ArrayList<>();
+
+        opportunityRepository
+                .findAll()
+                .stream()
+                .forEach(item->{
+                    opportunities.add(OpportunityDto.builder()
+                            .proposalId(item.getProposalId())
+                            .customer(item.getCustomer())
+                            .priceTonne(item.getPriceTonne())
+                            .lastQuotation(item.getLastQuotation())
+                            .pair(item.getPair())
+                            .build());
+                });
+
+        return opportunities;
     }
 
     @Override
     public ByteArrayInputStream generateCsvOpportunityReport() {
-        List<OpportunityDto> opportunities = opportunityRepository.listAll().stream()
-                .map(item -> OpportunityDto.builder()
-                        .proposalId(item.getProposalId())
-                        .customer(item.getCustomer())
-                        .priceTonne(item.getPriceTonne())
-                        .lastQuotation(item.getLastQuotation())
-                        .pair(item.getPair())
-                        .build())
-                .toList();
 
-        return CSVHelper.opportunityReportToCSV(opportunities);
+        return CSVHelper.opportunityReportToCSV(generateOpportunityData());
     }
 
 }
