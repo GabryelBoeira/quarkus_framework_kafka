@@ -23,15 +23,18 @@ Todo o acesso externo da aplicação web backend vai passar por um protótipo de
 
 1. Configuracao do PostGres:
 
-    ```shell script
-    docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -d postgres
-    ```
+   ```shell script
+   docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -d postgres
+   ```
 
 2. Configuracao do KeyCloak:
 
-    ```shell script
-    docker run --name keycloak -e KEYCLOAK_USER=admin -e KEYCLOAK_PASSWORD=admin -p 8180:8080 quay.io/keycloak/keycloak:latest start-dev
-    ```
+   ```shell script
+   docker run --name keycloak -e KEYCLOAK_ADMIN=admin -e KEYCLOAK_ADMIN_PASSWORD=admin -p 8180:8080 quay.io/keycloak/keycloak:17.0.1 start-dev
+   ```
+
+3. Adicionar configurar quarkus-realm.json
+   - Arquivo para importar no KeyCloak quarkus-realm.json esta na raiz do projeto
 
 ## Adicionando Bancos de Dados ao PostgreSQL no Docker
 
