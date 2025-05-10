@@ -11,7 +11,6 @@ import org.br.mineradora.gabryel.service.OpportunityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.print.attribute.standard.Media;
 import java.time.LocalDate;
 
 @Path("/api/opportunity")

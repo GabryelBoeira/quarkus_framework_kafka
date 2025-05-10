@@ -1,5 +1,6 @@
 package org.br.mineradora.gabryel.controller;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
@@ -28,6 +29,7 @@ public class ProposalController {
     }
 
     @POST
+    @RolesAllowed("manager")
     public Response createProposal(ProposalDetailsDTO proposalDetailsDTO) {
         try {
             proposalService.createProposal(proposalDetailsDTO);
