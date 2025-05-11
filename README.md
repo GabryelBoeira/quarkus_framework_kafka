@@ -19,7 +19,106 @@ Todo o acesso externo da aplicação web backend vai passar por um protótipo de
 - DevContainers
 - Swagger UI (OpenAPI)
 
-# Imagens Docker para PostgreSQL e Keycloak
+
+# Detalhes da execução do projeto:
+## Informações sobre cada projeto
+    
+1. **Projeto Cotação:**
+
+O microserviço **Cotação** é responsável por buscar a cotação do dólar periodicamente e enviar mensagens para o
+sistema utilizando o **Apache Kafka**.
+
+**Funcionamento principal:**
+- O serviço realiza requisições periódicas a uma API externa para obter a cotação atualizada do dólar.
+- Após obter os dados da cotação, ele organiza-os numa mensagem no formato JSON (ou outro modelo estruturado).
+- Em seguida, publica essa mensagem num tópico configurado no **Kafka**, possibilitando que outros microserviços
+  ou sistemas interessados consumam os dados em tempo real.
+
+**Tecnologias utilizadas:**
+- **Quarkus**: Para o desenvolvimento do microserviço, aproveitando a alta produtividade e suporte nativo para
+  Kafka.
+- **Apache Kafka**: Como middleware para comunicação baseada em eventos.
+
+**Requisitos de configuração:**
+- Configurações de periodicidade para as requisições de cotação.
+- Integração com o **Kafka** (produtor) detalhando o tópico onde a mensagem será publicada.
+
+**Fluxo básico:**
+1. Scheduler realiza uma chamada para obter a cotação do dólar.
+2. Dados são processados e formatados.
+3. Mensagem é enviada ao broker Kafka num tópico específico.
+
+Este microserviço é crucial para fornecer informações atualizadas sobre o mercado cambial e facilitar a comunicação
+por eventos assíncronos.
+
+## 2. **Projeto Proposta:**
+
+O microserviço **Proposta** é responsável por receber dados provenientes de mensagens enviadas por outros sistemas
+através do **Apache Kafka**, processar essas informações e disponibilizar os dados organizados.
+
+**Funcionamento principal:**
+
+- Consome mensagens específicas de um tópico no **Kafka**.
+- Processa os dados recebidos, aplicando as regras de negócio necessárias.
+- Persiste as informações no banco de dados `proposaldb`.
+
+**Tecnologias utilizadas:**
+
+- **Quarkus**: Para o desenvolvimento do microserviço, com foco em produtividade e suporte nativo para Kafka.
+- **Apache Kafka**: Para comunicação assíncrona baseada em eventos.
+- **PostgreSQL**: Banco de dados para armazenamento persistente.
+
+**Requisitos de configuração:**
+
+- Configurações do consumidor de mensagens no tópico Kafka.
+- Integração com o PostgreSQL para persistência de dados.
+
+**Fluxo básico:**
+
+1. Consumidor Kafka lê mensagens de um tópico.
+2. Dados são processados e tratados de acordo com regras de negócio.
+3. Informações são persistidas no banco de dados `proposaldb`.
+
+Este microserviço é essencial para gerenciar o fluxo de propostas, garantindo a consistência e persistência das
+informações recebidas.
+
+---
+
+## 3. **Projeto Relatório:**
+
+O microserviço **Relatório** é utilizado para agregar dados processados por outros microserviços, realizando análises e
+disponibilizando informações consolidadas.
+
+**Funcionamento principal:**
+
+- Lê dados de múltiplos tópicos no **Kafka** ou diretamente de bases de dados.
+- Realiza o processamento e agregação dos dados.
+- Disponibiliza relatórios personalizados por meio de APIs REST.
+
+**Tecnologias utilizadas:**
+
+- **Quarkus**: Para o desenvolvimento de APIs REST, focado em desempenho e usabilidade.
+- **Apache Kafka**: Como meio de consumir dados.
+- **PostgreSQL**: Para persistência de informações provenientes do banco de dados `reportdb`.
+
+**Requisitos de configuração:**
+
+- Integração com múltiplos tópicos no **Kafka** (consumidor).
+- Configuração de API REST para exposição de relatórios formatados.
+- Integração com o banco de dados `reportdb`.
+
+**Fluxo básico:**
+
+1. Consumidor Kafka ou conexões diretas em bancos de dados buscam informações.
+2. Dados são processados, agregados e analisados.
+3. Resultado é exposto via endpoints REST.
+
+Este microserviço desempenha um papel crucial ao centralizar e simplificar análises de dados provenientes de outros
+serviços, criando relatórios valiosos para decisões de negócio.
+
+
+
+## Imagens Docker para PostgresSQL e Keycloak
 
 1. Configuracao do PostGres:
 
