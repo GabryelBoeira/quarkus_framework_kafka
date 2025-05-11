@@ -17,6 +17,4 @@ public interface OpportunityService {
 
     List<OpportunityDto> generateOpportunityData();
 
-    ByteArrayInputStream generateCsvOpportunityReport();
-
 }

@@ -11,9 +11,7 @@ import org.br.mineradora.gabryel.entity.QuotationEntity;
 import org.br.mineradora.gabryel.message.KafkaEvent;
 import org.br.mineradora.gabryel.repository.OpportunityRepository;
 import org.br.mineradora.gabryel.repository.QuotationRepository;
-import org.br.mineradora.gabryel.utils.CSVHelper;
 
-import java.io.ByteArrayInputStream;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,12 +74,6 @@ public class OpportunityServiceImpl implements OpportunityService {
                 });
 
         return opportunities;
-    }
-
-    @Override
-    public ByteArrayInputStream generateCsvOpportunityReport() {
-
-        return CSVHelper.opportunityReportToCSV(generateOpportunityData());
     }
 
 }
