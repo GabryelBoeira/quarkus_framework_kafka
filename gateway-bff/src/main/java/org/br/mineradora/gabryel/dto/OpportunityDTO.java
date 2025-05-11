@@ -3,16 +3,17 @@ package org.br.mineradora.gabryel.dto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.jackson.Jacksonized;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Data
 @Builder
-@AllArgsConstructor
 @Jacksonized
-public class ProposalDetailsDTO {
+@NoArgsConstructor
+@AllArgsConstructor
+public class OpportunityDTO {
 
     private Long proposalId;
 
@@ -20,10 +21,8 @@ public class ProposalDetailsDTO {
 
     private BigDecimal priceTonne;
 
-    private Integer tonnes;
+    private BigDecimal lastQuotation;
 
-    private Integer country;
-
-    private Integer proposalValidityInDays;
+    private String pair;
 
 }

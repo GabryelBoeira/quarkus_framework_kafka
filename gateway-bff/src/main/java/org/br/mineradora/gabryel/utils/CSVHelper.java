@@ -2,7 +2,7 @@ package org.br.mineradora.gabryel.utils;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
-import org.br.mineradora.gabryel.dto.OpportunityDto;
+import org.br.mineradora.gabryel.dto.OpportunityDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,8 +17,7 @@ public class CSVHelper {
 
     private static final Logger LOG = LoggerFactory.getLogger(CSVHelper.class);
 
-
-    public static ByteArrayInputStream opportunityReportToCSV(List<OpportunityDto> Opportunities) {
+    public static ByteArrayInputStream opportunityReportToCSV(List<OpportunityDTO> Opportunities) {
         final CSVFormat format = CSVFormat.DEFAULT.builder().setHeader("ID Proposta", "Cliente", "Preco da Tonelada", "Melhor cotacao", "Moeda").get();
 
         try {
