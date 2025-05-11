@@ -8,7 +8,7 @@ import org.br.mineradora.gabryel.dto.ProposalDetailsDTO;
 @ApplicationScoped
 public interface ProposalService {
 
-    ProposalDetailsDTO getProposalDetails(@PathParam("id") long proposalId);
+    ProposalDetailsDTO getProposalDetailsById(@PathParam("id") long proposalId);
 
     Response createProposal(ProposalDetailsDTO proposalDetailsDTO);
 

@@ -15,7 +15,7 @@ public class ProposalServiceImpl implements ProposalService {
     ProposalRestClient proposalRestClient;
 
     @Override
-    public ProposalDetailsDTO getProposalDetails(long proposalId) {
+    public ProposalDetailsDTO getProposalDetailsById(long proposalId) {
         return proposalRestClient.getProposalDetailsById(proposalId);
     }
 
