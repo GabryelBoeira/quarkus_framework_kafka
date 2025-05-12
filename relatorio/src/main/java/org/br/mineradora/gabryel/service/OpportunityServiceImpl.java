@@ -11,12 +11,14 @@ import org.br.mineradora.gabryel.entity.QuotationEntity;
 import org.br.mineradora.gabryel.message.KafkaEvent;
 import org.br.mineradora.gabryel.repository.OpportunityRepository;
 import org.br.mineradora.gabryel.repository.QuotationRepository;
+import org.eclipse.microprofile.opentracing.Traced;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @ApplicationScoped
+@Traced
 public class OpportunityServiceImpl implements OpportunityService {
 
     @Inject

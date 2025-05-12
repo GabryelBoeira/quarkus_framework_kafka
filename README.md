@@ -22,7 +22,8 @@ Todo o acesso externo da aplicação web backend vai passar por um protótipo de
 
 # Detalhes da execução do projeto:
 ## Informações sobre cada projeto
-    
+**Para acessar localmente [Cotacao](http://localhost:8080/q/dev-ui/welcome)**
+
 1. **Projeto Cotação:**
 
 O microserviço **Cotação** é responsável por buscar a cotação do dólar periodicamente e enviar mensagens para o
@@ -52,6 +53,7 @@ Este microserviço é crucial para fornecer informações atualizadas sobre o me
 por eventos assíncronos.
 
 ## 2. **Projeto Proposta:**
+**Para acessar localmente [Proposta](http://localhost:8091/q/dev-ui/welcome)**
 
 O microserviço **Proposta** é responsável por receber dados provenientes de mensagens enviadas por outros sistemas
 através do **Apache Kafka**, processar essas informações e disponibilizar os dados organizados.
@@ -85,6 +87,7 @@ informações recebidas.
 ---
 
 ## 3. **Projeto Relatório:**
+**Para acessar localmente [Relatorio](http://localhost:8081/q/dev-ui/welcome)**
 
 O microserviço **Relatório** é utilizado para agregar dados processados por outros microserviços, realizando análises e
 disponibilizando informações consolidadas.
@@ -116,7 +119,41 @@ disponibilizando informações consolidadas.
 Este microserviço desempenha um papel crucial ao centralizar e simplificar análises de dados provenientes de outros
 serviços, criando relatórios valiosos para decisões de negócio.
 
+## 4. **Projeto Gateway-BFF:**
+**Para acessar localmente [Gateway-BFF](http://localhost:8095/q/dev-ui/welcome)**
 
+O microserviço **Gateway-BFF** (Backend for Frontend) atua como um ponto único de entrada para os serviços backend,
+abstraindo e simplificando as interações entre o frontend e os microsserviços.
+
+**Funcionamento principal:**
+
+- Encaminha as solicitações recebidas do frontend para os outros microsserviços internos.
+- Faz orquestração de chamadas para consolidar dados provenientes de múltiplos microsserviços, devolvendo ao cliente uma
+  resposta agregada.
+- Trata autenticação e autorização, garantindo acesso seguro às APIs.
+
+**Tecnologias utilizadas:**
+
+- **Quarkus**: Para desenvolvimento ágil e performático das APIs.
+- **RESTEasy Reactive**: Para criar os endpoints REST de alta performance.
+- **Keycloak**: Para autenticação e autorização via OAuth2/OpenID Connect.
+- **Apache Kafka**: Para interação assíncrona, quando necessário.
+
+**Requisitos de configuração:**
+
+- Configuração de conexões para os microsserviços internos.
+- Integração com **Keycloak** para validação de tokens e gerenciamento de autenticação.
+- Configuração de endpoints REST que representam funcionalidades de integração.
+
+**Fluxo básico:**
+
+1. O frontend realiza uma requisição ao **Gateway-BFF**.
+2. O Gateway valida o token de autenticação com o **Keycloak**.
+3. Com base na requisição, o Gateway chama um ou mais microsserviços para obter os dados necessários.
+4. Resposta consolidada é enviada para o frontend.
+
+Este microserviço desempenha um papel essencial ao centralizar o acesso ao backend, simplificar integrações para o
+frontend e garantir segurança nas comunicações.
 
 ## Imagens Docker para PostgresSQL e Keycloak
 
@@ -133,16 +170,16 @@ serviços, criando relatórios valiosos para decisões de negócio.
    ```
 
 3. Adicionar configurar quarkus-realm.json
-   - Arquivo para importar no KeyCloak quarkus-realm.json esta na raiz do projeto
+   - Arquivo para importar no KeyCloak [quarkus-realm.json](quarkus-realm.json) esta na raiz do projeto.
 
-## Adicionando Bancos de Dados ao PostgreSQL no Docker
+## Adicionando Bancos de Dados ao PostgresSQL no Docker
 
 Este guia demonstra como adicionar os bancos de dados `quotationdb`, `proposaldb` e `reportdb` à sua instância PostgreSQL que está rodando em um container Docker.
 
 **Pré-requisitos:**
 
-- Docker instalado e em execução.
-- Um container PostgreSQL rodando com o nome `postgres` (como iniciado com o comando: `docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -d postgres`).
+  - Docker instalado e em execução.
+  - Um container PostgreSQL rodando com o nome `postgres` (como iniciado com o comando: `docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=root -d postgres`).
 
 **Passos:**
 
@@ -203,3 +240,11 @@ Para verificar se os bancos de dados foram criados com sucesso, você pode se co
   \q
   exit
 ```
+
+## Adicionando Jaeger Tracing com Docker
+**Para acessar localmente [jaeger](http://localhost:16686/search)**
+
+```bash
+  docker run -p 5775:5775/udp -p 6831:6832/udp -p 5778:5778 -p 16686:16686 -p 14268:14268 jaegertracing/all-in-one:latest 
+```
+

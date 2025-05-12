@@ -5,9 +5,11 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.core.Response;
 import org.br.mineradora.gabryel.client.ProposalRestClient;
 import org.br.mineradora.gabryel.dto.ProposalDetailsDTO;
+import org.eclipse.microprofile.opentracing.Traced;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @ApplicationScoped
+@Traced
 public class ProposalServiceImpl implements ProposalService {
 
     @Inject

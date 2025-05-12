@@ -5,12 +5,14 @@ import jakarta.inject.Inject;
 import org.br.mineradora.gabryel.client.ReportRestClient;
 import org.br.mineradora.gabryel.dto.OpportunityDTO;
 import org.br.mineradora.gabryel.utils.CSVHelper;
+import org.eclipse.microprofile.opentracing.Traced;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
 
 @ApplicationScoped
+@Traced
 public class ReportServiceImpl implements ReportService {
 
     @Inject

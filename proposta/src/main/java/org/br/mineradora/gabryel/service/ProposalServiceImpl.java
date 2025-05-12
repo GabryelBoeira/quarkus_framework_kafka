@@ -8,12 +8,14 @@ import org.br.mineradora.gabryel.dto.ProposalDetailsDTO;
 import org.br.mineradora.gabryel.entity.ProposalEntity;
 import org.br.mineradora.gabryel.message.KafkaEvent;
 import org.br.mineradora.gabryel.repository.ProposalRepository;
+import org.eclipse.microprofile.opentracing.Traced;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
 
 @ApplicationScoped
+@Traced
 public class ProposalServiceImpl implements ProposalService {
 
     private final Logger LOG = LoggerFactory.getLogger(ProposalServiceImpl.class);
