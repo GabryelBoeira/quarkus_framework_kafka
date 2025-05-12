@@ -14,5 +14,4 @@ public class CurrencyPriceDTO {
 
     private USDBRL USDBRL;
 
-
 }

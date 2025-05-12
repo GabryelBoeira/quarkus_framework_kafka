@@ -30,7 +30,7 @@ public class ProposalServiceImpl implements ProposalService {
         ProposalEntity proposalEntity = proposalRepository.findById(id);
 
         return ProposalDetailsDTO.builder()
-                .id(proposalEntity.getId())
+                .proposalId(proposalEntity.getId())
                 .customer(proposalEntity.getCustomer())
                 .country(proposalEntity.getCountry())
                 .priceTonne(proposalEntity.getPriceTonne())

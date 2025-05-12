@@ -55,12 +55,6 @@
             <artifactId>quarkus-smallrye-openapi</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-smallrye-opentracing</artifactId>
-            <version>3.5.3</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-csv</artifactId>
             <version>1.14.0</version>
@@ -80,6 +74,16 @@
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkiverse.jaeger</groupId>
+            <artifactId>quarkus-jaeger</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkiverse.opentracing</groupId>
+            <artifactId>quarkus-smallrye-opentracing</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 
