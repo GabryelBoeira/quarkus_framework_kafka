@@ -19,6 +19,8 @@ Todo o acesso externo da aplicação web backend vai passar por um protótipo de
 - DevContainers
 - Swagger UI (OpenAPI)
 
+# Certificado de Conclusão:
+- Certificado Udemy: [acessar](https://www.udemy.com/certificate/UC-fdac2a40-f05d-4ede-b8c7-acb4f2c8d76f/)
 
 # Detalhes da execução do projeto:
 ## Informações sobre cada projeto
