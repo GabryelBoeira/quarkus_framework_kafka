@@ -1,5 +1,6 @@
 package org.br.mineradora.gabryel.controller;
 
+import io.quarkus.oidc.token.propagation.reactive.AccessTokenRequestReactiveFilter;
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -10,11 +11,13 @@ import jakarta.ws.rs.ServerErrorException;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.br.mineradora.gabryel.service.ReportService;
+import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 
 import java.time.LocalDate;
 
 @ApplicationScoped
 @Path("/api/opportunity")
+@RegisterProvider(AccessTokenRequestReactiveFilter.class)
 public class ReportController {
 
     @Inject
